@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './App.scss';
+import GroupContainer from './components/GroupContainer';
+import StudentContainer from './components/StudentContainer';
 
 class App extends Component {
   render() {
     return (
-      <div data-testid="app" className="App">
-        Hello World
-      </div>
+      <>
+        <GroupContainer />
+        <StudentContainer />
+      </>
     );
   }
 }
