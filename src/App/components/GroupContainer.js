@@ -32,7 +32,7 @@ class GroupContainer extends Component {
           </button>
         </div>
         {groups.map((group) => (
-          <Group key={group.name} name={group.name} students={group.students} />
+          <Group key={group.name} name={group.name} students={group.students} groupId={group.id} />
         ))}
       </section>
     );
