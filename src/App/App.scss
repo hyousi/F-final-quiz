@@ -6,7 +6,44 @@
 .student {
   background-color: $light-gray;
   padding: 4px 8px;
-  margin: 4px;
-  width: calc(100% / 8 - 24px);
+  margin: 4px 12px;
+  width: calc(100% / 8 - 40px);
   display: inline-block;
+  text-align: center;
+}
+
+.group-container {
+  button {
+    border: none;
+    margin: 1em 0;
+    padding: 0 2em;
+    color: white;
+    background-color: $primary-color;
+  }
+
+  .group {
+    border: 1px solid $gray;
+    margin-bottom: 24px;
+
+    input {
+      color: white;
+      background-color: $gray;
+      text-align: center;
+      width: 100%;
+      padding: 8px 0;
+      outline: none;
+      border: none;
+    }
+
+    .group-students {
+      margin: 12px 24px;
+    }
+  }
+}
+
+// helper
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

@@ -24,15 +24,17 @@ class GroupContainer extends Component {
     const { groups } = this.state;
 
     return (
-      <div>
-        <h2>分组列表</h2>
-        <button type="button" onClick={this.handleGrouping}>
-          分组学员
-        </button>
+      <section className="group-container">
+        <div className="row">
+          <h2>分组列表</h2>
+          <button type="button" onClick={this.handleGrouping}>
+            分组学员
+          </button>
+        </div>
         {groups.map((group) => (
           <Group key={group.name} name={group.name} students={group.students} />
         ))}
-      </div>
+      </section>
     );
   }
 }
