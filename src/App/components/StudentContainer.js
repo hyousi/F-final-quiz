@@ -11,10 +11,29 @@ class StudentContainer extends Component {
   }
 
   componentDidMount() {
+    this.getStudents();
+  }
+
+  getStudents = () => {
+    // TODO: use a HTTP request lib
     fetch('http://localhost:8080/api/students')
       .then((response) => response.json())
       .then((data) => this.setState({ students: data }));
-  }
+  };
+
+  addStudent = (request) => {
+    fetch('http://localhost:8080/api/students', {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+      body: request,
+    })
+      .then(() => this.getStudents())
+      .catch(() => {
+        // TODO: error handling!
+      });
+  };
 
   render() {
     const { students } = this.state;
@@ -24,7 +43,7 @@ class StudentContainer extends Component {
         {students.map((student) => (
           <Student key={student.id} id={student.id} name={student.name} />
         ))}
-        <AddStudent />
+        <AddStudent addStudent={this.addStudent} />
       </section>
     );
   }
