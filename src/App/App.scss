@@ -1,11 +1,13 @@
 @import 'src/style/_variables';
 
-.App {
+#root {
+  width: 70%;
+  margin: 0 auto;
 }
 
 .student {
   background-color: $light-gray;
-  padding: 4px 8px;
+  padding: 0.5em 8px;
   margin: 4px 12px;
   width: calc(100% / 8 - 40px);
   display: inline-block;
@@ -41,6 +43,17 @@
   }
 }
 
+.student-container {
+  input {
+    border: 1px solid $dark-gray;
+    cursor: pointer;
+  }
+
+  input:focus {
+    cursor: auto;
+    content: '';
+  }
+}
 // helper
 .row {
   display: flex;

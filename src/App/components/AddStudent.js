@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const AddStudent = ({ addStudent }) => {
   const [name, setName] = useState('');
-  const [editable, setEditable] = useState(false);
 
   const handleEnter = (e) => {
     if (e.key === 'Enter') {
@@ -11,20 +10,21 @@ const AddStudent = ({ addStudent }) => {
     }
   };
 
-  const handleClick = () => setEditable(true);
-
-  return editable ? (
+  return (
     <input
       name="name"
       value={name}
       onChange={(e) => setName(e.target.value)}
+      onFocus={(e) => {
+        e.target.placeholder = '';
+      }}
+      onBlur={(e) => {
+        e.target.placeholder = '+ 添加学员';
+      }}
       onKeyPress={handleEnter}
       className="student"
+      placeholder="+ 添加学员"
     />
-  ) : (
-    <button type="button" onClick={handleClick} className="student">
-      添加学员
-    </button>
   );
 };
 

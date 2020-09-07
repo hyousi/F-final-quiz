@@ -39,7 +39,7 @@ class StudentContainer extends Component {
   render() {
     const { students } = this.state;
     return (
-      <section>
+      <section className="student-container">
         <h2>学院列表</h2>
         {students.map((student) => (
           <Student key={student.id} id={student.id} name={student.name} />
