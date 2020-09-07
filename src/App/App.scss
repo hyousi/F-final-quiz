@@ -1,2 +1,12 @@
+@import 'src/style/_variables';
+
 .App {
+}
+
+.student {
+  background-color: $light-gray;
+  padding: 4px 8px;
+  margin: 4px;
+  width: calc(100% / 8 - 24px);
+  display: inline-block;
 }

@@ -19,9 +19,10 @@ const AddStudent = ({ addStudent }) => {
       value={name}
       onChange={(e) => setName(e.target.value)}
       onKeyPress={handleEnter}
+      className="student"
     />
   ) : (
-    <button type="button" onClick={handleClick}>
+    <button type="button" onClick={handleClick} className="student">
       添加学员
     </button>
   );
