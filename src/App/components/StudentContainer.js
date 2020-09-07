@@ -18,7 +18,8 @@ class StudentContainer extends Component {
     // TODO: use a HTTP request lib
     fetch('http://localhost:8080/api/students')
       .then((response) => response.json())
-      .then((data) => this.setState({ students: data }));
+      .then((data) => data.sort((a, b) => a.id - b.id))
+      .then((students) => this.setState({ students }));
   };
 
   addStudent = (request) => {

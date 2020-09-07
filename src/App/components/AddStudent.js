@@ -18,7 +18,7 @@ const AddStudent = ({ addStudent }) => {
       name="name"
       value={name}
       onChange={(e) => setName(e.target.value)}
-      onKeyDown={handleEnter}
+      onKeyPress={handleEnter}
     />
   ) : (
     <button type="button" onClick={handleClick}>
