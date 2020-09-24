@@ -21,8 +21,8 @@ const AddStudent = ({ addStudent }) => {
       onBlur={(e) => {
         e.target.placeholder = '+ 添加学员';
       }}
-      onKeyPress={handleEnter}
-      className="student"
+      onKeyUp={handleEnter}
+      className="add-student-button"
       placeholder="+ 添加学员"
     />
   );
