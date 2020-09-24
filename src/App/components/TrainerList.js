@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { message } from 'antd';
 import Person from './Person';
-import { addTrainer, getTrainers } from '../../utils/api';
+import { addTrainer, deleteTrainer, getTrainers } from '../../utils/api';
 import TrainerInput from './TrainerInput';
 
 class TrainerList extends Component {
@@ -21,8 +22,21 @@ class TrainerList extends Component {
 
   fetchTrainers = () => {
     getTrainers().then((trainers) =>
-      this.setState({ trainers: trainers.map((trainer) => ({ ...trainer, type: 'trainer' })) })
+      this.setState({
+        trainers: trainers.map((trainer) => ({ ...trainer, type: 'trainer' })),
+      })
     );
+  };
+
+  removeTrainer = (id) => {
+    deleteTrainer(id)
+      .then(() => {
+        message.success('删除成功');
+        this.setState((prevState) => ({
+          trainers: prevState.trainers.filter((trainer) => trainer.id !== id),
+        }));
+      })
+      .catch(() => message.error('删除失败'));
   };
 
   render() {
@@ -32,7 +46,7 @@ class TrainerList extends Component {
       <section className="trainer-section">
         <h2>讲师列表</h2>
         {trainers.map((trainer) => (
-          <Person key={trainer.id} person={trainer} />
+          <Person key={trainer.id} person={trainer} removePerson={this.removeTrainer} />
         ))}
         <TrainerInput addTrainer={this.postTrainer} />
       </section>

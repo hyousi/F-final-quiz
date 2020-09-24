@@ -44,4 +44,12 @@ function addTrainer(name) {
   return post(url, { name });
 }
 
-export { addTrainee, getTrainees, deleteTrainee, getTrainers, addTrainer };
+function deleteTrainer(id) {
+  const url = `${env}/trainers/${id}`;
+  return fetch(url, {
+    method: 'DELETE',
+    headers: { 'content-type': 'application/json' },
+  }).then((response) => (response.ok ? Promise.resolve() : Promise.reject()));
+}
+
+export { addTrainee, getTrainees, deleteTrainee, getTrainers, addTrainer, deleteTrainer };

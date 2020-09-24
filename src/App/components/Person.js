@@ -11,7 +11,7 @@ const content = (person) => (
   </Space>
 );
 
-const Person = ({ person, removeTrainee }) => {
+const Person = ({ person, removePerson }) => {
   const { name, id } = person;
   const [visible, setVisible] = useState(false);
 
@@ -20,7 +20,7 @@ const Person = ({ person, removeTrainee }) => {
   };
 
   const handleOk = () => {
-    removeTrainee(id);
+    removePerson(id);
     setVisible(false);
   };
 

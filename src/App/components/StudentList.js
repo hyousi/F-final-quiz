@@ -41,7 +41,7 @@ class StudentList extends Component {
       <section className="student-container">
         <h2>学员列表</h2>
         {students.map((student) => (
-          <Person key={student.id} person={student} removeTrainee={this.removeTrainee} />
+          <Person key={student.id} person={student} removePerson={this.removeTrainee} />
         ))}
         <Button type="primary" onClick={this.goToTraineeFormPage}>
           + 添加学员
