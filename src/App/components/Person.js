@@ -28,11 +28,13 @@ const Person = ({ person, removeTrainee }) => {
     setVisible(false);
   };
 
+  const modalTitle = person.type === 'trainee' ? '删除学员' : '删除讲师';
+
   return (
     <Popover content={content(person)}>
       <Button className="person" onClick={showModal}>{`${id}. ${name}`}</Button>
       <Modal
-        title="删除学员"
+        title={modalTitle}
         visible={visible}
         onOk={handleOk}
         onCancel={handleCancel}

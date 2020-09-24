@@ -20,7 +20,9 @@ class TrainerList extends Component {
   };
 
   fetchTrainers = () => {
-    getTrainers().then((trainers) => this.setState({ trainers }));
+    getTrainers().then((trainers) =>
+      this.setState({ trainers: trainers.map((trainer) => ({ ...trainer, type: 'trainer' })) })
+    );
   };
 
   render() {

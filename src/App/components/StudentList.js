@@ -15,7 +15,9 @@ class StudentList extends Component {
   componentDidMount() {
     getTrainees()
       .then((data) => data.sort((a, b) => a.id - b.id))
-      .then((students) => this.setState({ students }));
+      .then((students) =>
+        this.setState({ students: students.map((student) => ({ ...student, type: 'trainee' })) })
+      );
   }
 
   goToTraineeFormPage = () => {
