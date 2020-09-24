@@ -1,11 +1,19 @@
 const env = 'http://localhost:8080';
 
+function get(url) {
+  return fetch(url)
+    .then((response) => (response.ok ? Promise.resolve(response) : Promise.reject()))
+    .then((response) => response.json());
+}
+
 function post(url, data) {
   return fetch(url, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(data),
-  }).then((response) => (response.ok ? Promise.resolve(response.json()) : Promise.reject()));
+  })
+    .then((response) => (response.ok ? Promise.resolve(response) : Promise.reject()))
+    .then((response) => response.json());
 }
 
 function addTrainee(trainee) {
@@ -13,4 +21,9 @@ function addTrainee(trainee) {
   return post(url, trainee);
 }
 
-export { addTrainee };
+function getTrainees() {
+  const url = `${env}/trainees?grouped=false`;
+  return get(url);
+}
+
+export { addTrainee, getTrainees };
