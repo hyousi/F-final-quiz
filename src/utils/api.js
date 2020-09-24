@@ -34,4 +34,9 @@ function deleteTrainee(id) {
   }).then((response) => (response.ok ? Promise.resolve() : Promise.reject()));
 }
 
-export { addTrainee, getTrainees, deleteTrainee };
+function getTrainers() {
+  const url = `${env}/trainers?grouped=false`;
+  return get(url);
+}
+
+export { addTrainee, getTrainees, deleteTrainee, getTrainers };
