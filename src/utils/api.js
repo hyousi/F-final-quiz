@@ -26,4 +26,12 @@ function getTrainees() {
   return get(url);
 }
 
-export { addTrainee, getTrainees };
+function deleteTrainee(id) {
+  const url = `${env}/trainees/${id}`;
+  return fetch(url, {
+    method: 'DELETE',
+    headers: { 'content-type': 'application/json' },
+  }).then((response) => (response.ok ? Promise.resolve() : Promise.reject()));
+}
+
+export { addTrainee, getTrainees, deleteTrainee };
