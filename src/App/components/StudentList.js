@@ -36,7 +36,7 @@ class StudentList extends Component {
           <Student key={student.id} id={student.id} name={student.name} />
         ))}
         <Button type="primary" onClick={this.goToTraineeFormPage}>
-          + 添加学院
+          + 添加学员
         </Button>
       </section>
     );
