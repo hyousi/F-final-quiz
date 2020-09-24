@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Button } from 'antd';
+import { withRouter } from 'react-router-dom';
 import Student from './Student';
-import AddStudent from './AddStudent';
 
 class StudentList extends Component {
   constructor(props) {
@@ -22,18 +23,8 @@ class StudentList extends Component {
       .then((students) => this.setState({ students }));
   };
 
-  addStudent = (request) => {
-    fetch('http://localhost:8080/api/students', {
-      method: 'POST',
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
-      body: request,
-    })
-      .then(() => this.getStudents())
-      .catch(() => {
-        // TODO: error handling!
-      });
+  goToTraineeFormPage = () => {
+    this.props.history.push('/trainee/add');
   };
 
   render() {
@@ -44,10 +35,12 @@ class StudentList extends Component {
         {students.map((student) => (
           <Student key={student.id} id={student.id} name={student.name} />
         ))}
-        <AddStudent addStudent={this.addStudent} />
+        <Button type="primary" onClick={this.goToTraineeFormPage}>
+          + 添加学院
+        </Button>
       </section>
     );
   }
 }
 
-export default StudentList;
+export default withRouter(StudentList);

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
+// FIXME: ant design style sheet
+import '../../node_modules/antd/dist/antd.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home, TraineeForm } from './pages';
 
