@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Student from './Student';
+import Person from './Person';
 
 const Group = ({ name, students, groupId }) => {
   const [teamName, setTeamName] = useState(name);
@@ -46,7 +46,7 @@ const Group = ({ name, students, groupId }) => {
         {students
           .sort((a, b) => a.id - b.id)
           .map((student) => (
-            <Student key={`${name}-${student.name}`} id={student.id} name={student.name} />
+            <Person key={`${name}-${student.name}`} person={student} />
           ))}
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, message } from 'antd';
 import { withRouter } from 'react-router-dom';
-import Student from './Student';
+import Person from './Person';
 import { deleteTrainee, getTrainees } from '../../utils/api';
 
 class StudentList extends Component {
@@ -39,7 +39,7 @@ class StudentList extends Component {
       <section className="student-container">
         <h2>学员列表</h2>
         {students.map((student) => (
-          <Student key={student.id} trainee={student} removeTrainee={this.removeTrainee} />
+          <Person key={student.id} person={student} removeTrainee={this.removeTrainee} />
         ))}
         <Button type="primary" onClick={this.goToTraineeFormPage}>
           + 添加学员

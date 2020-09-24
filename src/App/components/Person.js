@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Button, Modal, Popover, Space } from 'antd';
 
-const content = (trainee) => (
+const content = (person) => (
   <Space>
-    {Object.entries(trainee).map(([key, val]) => (
-      <span key={`${key}-${val}`} className="trainee-info">
+    {Object.entries(person).map(([key, val]) => (
+      <span key={`${key}-${val}`} className="person-info">
         {key}: {val}
       </span>
     ))}
   </Space>
 );
 
-const Student = ({ trainee, removeTrainee }) => {
-  const { name, id } = trainee;
+const Person = ({ person, removeTrainee }) => {
+  const { name, id } = person;
   const [visible, setVisible] = useState(false);
 
   const showModal = () => {
@@ -29,8 +29,8 @@ const Student = ({ trainee, removeTrainee }) => {
   };
 
   return (
-    <Popover content={content(trainee)}>
-      <Button className="student" onClick={showModal}>{`${id}. ${name}`}</Button>
+    <Popover content={content(person)}>
+      <Button className="person" onClick={showModal}>{`${id}. ${name}`}</Button>
       <Modal
         title="删除学员"
         visible={visible}
@@ -45,4 +45,4 @@ const Student = ({ trainee, removeTrainee }) => {
   );
 };
 
-export default Student;
+export default Person;
