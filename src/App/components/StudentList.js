@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Student from './Student';
 import AddStudent from './AddStudent';
 
-class StudentContainer extends Component {
+class StudentList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,4 +50,4 @@ class StudentContainer extends Component {
   }
 }
 
-export default StudentContainer;
+export default StudentList;

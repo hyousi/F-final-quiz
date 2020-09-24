@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Group from './Group';
 
-class GroupContainer extends Component {
+class GroupList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,4 +39,4 @@ class GroupContainer extends Component {
   }
 }
 
-export default GroupContainer;
+export default GroupList;

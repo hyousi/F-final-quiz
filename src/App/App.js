@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import './App.scss';
-import GroupContainer from './components/GroupContainer';
-import StudentContainer from './components/StudentContainer';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Home, TraineeForm } from './pages';
 
 class App extends Component {
   render() {
     return (
-      <>
-        <GroupContainer />
-        <StudentContainer />
-      </>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/trainee/add" component={TraineeForm} />
+        </Switch>
+      </Router>
     );
   }
 }
