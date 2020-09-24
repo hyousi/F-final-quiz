@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Person from './Person';
-import { getTrainers } from '../../utils/api';
+import { addTrainer, getTrainers } from '../../utils/api';
+import TrainerInput from './TrainerInput';
 
 class TrainerList extends Component {
   constructor(props) {
@@ -11,11 +12,15 @@ class TrainerList extends Component {
   }
 
   componentDidMount() {
-    getTrainers().then((trainers) => this.setState({ trainers }));
+    this.fetchTrainers();
   }
 
-  addTrainer = () => {
-    // TODO: add trainer
+  postTrainer = (name) => {
+    return addTrainer(name).then(this.fetchTrainers);
+  };
+
+  fetchTrainers = () => {
+    getTrainers().then((trainers) => this.setState({ trainers }));
   };
 
   render() {
@@ -27,6 +32,7 @@ class TrainerList extends Component {
         {trainers.map((trainer) => (
           <Person key={trainer.id} person={trainer} />
         ))}
+        <TrainerInput addTrainer={this.postTrainer} />
       </section>
     );
   }

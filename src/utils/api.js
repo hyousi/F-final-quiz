@@ -39,4 +39,9 @@ function getTrainers() {
   return get(url);
 }
 
-export { addTrainee, getTrainees, deleteTrainee, getTrainers };
+function addTrainer(name) {
+  const url = `${env}/trainers`;
+  return post(url, { name });
+}
+
+export { addTrainee, getTrainees, deleteTrainee, getTrainers, addTrainer };
