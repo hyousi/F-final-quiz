@@ -2,6 +2,7 @@ import React from 'react';
 import { Space, Button, Form, Input, message } from 'antd';
 import './TraineeForm.scss';
 import { addTrainee } from '../../utils/api';
+// TODO feedback: 一个组件所有的东西，可以再套一层folder，把他们框起来。
 
 function TraineeForm(props) {
   const [form] = Form.useForm();

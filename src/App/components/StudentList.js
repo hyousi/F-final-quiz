@@ -41,6 +41,7 @@ class StudentList extends Component {
       <section className="student-container">
         <h2>学员列表</h2>
         {students.map((student) => (
+          //  TODO feedback: 列表元素没有使用ul li
           <Person key={student.id} person={student} removePerson={this.removeTrainee} />
         ))}
         <Button type="primary" onClick={this.goToTraineeFormPage}>
