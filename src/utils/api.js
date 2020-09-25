@@ -1,5 +1,5 @@
 const env = 'http://localhost:8080';
-
+// TODO feedback: get，post， delete, put都可以再抽象一下，最后就一个发API的方法
 function get(url) {
   return fetch(url)
     .then((response) => (response.ok ? Promise.resolve(response) : Promise.reject()))
